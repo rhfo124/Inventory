@@ -1,0 +1,23 @@
+// view
+import React, { Component } from "react";
+import { View, Text } from "react-native";
+
+class App extends Component {
+  render() {
+    return (
+      <View
+        style={{
+          flexDirection: "row",
+          height: 50,
+          margin: 50
+        }}
+      >
+        <View style={{ backgroundColor: "blue", flex: 0.3 }} />
+        <View style={{ backgroundColor: "red", flex: 0.5 }} />
+        <Text>Hello rhfo124!</Text>
+      </View>
+    );
+  }
+}
+
+export default App;

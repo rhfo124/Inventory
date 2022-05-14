@@ -1,0 +1,83 @@
+// button
+
+import React from 'react';
+import { StyleSheet, Button, View, SafeAreaView, Text, Alert } from 'react-native';
+
+const Separator = () => (
+  <View style={styles.separator} />
+);
+
+const App = () => (
+  <SafeAreaView style={styles.container}>
+    <View>
+      <Text style={styles.title}>
+        제목과 "Press" 핸들러가 필요합니다. 모든 사람이 앱을 사용할 수 있도록 접근성 레이블을 설정하는 것이 좋습니다.
+      </Text>
+      <Button
+        title="Press me"
+        onPress={() => Alert.alert('Simple Button pressed')}
+      />
+    </View>
+    <Separator />
+    <View>
+      <Text style={styles.title}>
+        각 플랫폼에서 표준으로 보이는 방식으로 색상을 조정합니다. iOS에서 색상 소품은 텍스트 색상을 제어합니다. Android에서 색상은 버튼의 배경색을 조정합니다.
+      </Text>
+      <Button
+        title="Press me"
+        color="#f194ff"
+        onPress={() => Alert.alert('Button with adjusted color pressed')}
+      />
+    </View>
+    <Separator />
+    <View>
+      <Text style={styles.title}>
+        구성 요소에 대한 모든 상호 작용이 비활성화됩니다.
+      </Text>
+      <Button
+        title="Press me"
+        disabled
+        onPress={() => Alert.alert('Cannot press this one')}
+      />
+    </View>
+    <Separator />
+    <View>
+      <Text style={styles.title}>
+        이 레이아웃 전략을 사용하면 제목이 버튼의 너비를 정의할 수 있습니다.
+      </Text>
+      <View style={styles.fixToText}>
+        <Button
+          title="Left button"
+          onPress={() => Alert.alert('Left button pressed')}
+        />
+        <Button
+          title="Right button"
+          onPress={() => Alert.alert('Right button pressed')}
+        />
+      </View>
+    </View>
+  </SafeAreaView>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    marginHorizontal: 16,
+  },
+  title: {
+    textAlign: 'center',
+    marginVertical: 8,
+  },
+  fixToText: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  separator: {
+    marginVertical: 8,
+    borderBottomColor: '#737373',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+});
+
+export default App;
