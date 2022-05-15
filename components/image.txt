@@ -1,0 +1,71 @@
+// image #1
+
+import React, { Component } from 'react';
+import { AppRegistry, View, Image, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 30,
+  },
+  tinyLogo: {
+    width: 70,
+    height: 60,
+  },
+  logo: {
+    width: 70,
+    height: 65,
+  },
+});
+
+class DisplayAnImage extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Image
+          style={styles.tinyLogo}
+          source={require('@expo/snack-static/react-native-logo.png')}
+        />
+        <Image
+          style={styles.tinyLogo}
+          source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
+        />
+        <Image
+          style={styles.logo}
+          source={{uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg=='}}
+        />
+      </View>
+    );
+  }
+}
+
+export default DisplayAnImage;
+
+// image #2
+
+
+import React, { Component } from 'react';
+import { View, Image, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  stretch: {
+    width: 180,
+    height: 200,
+    resizeMode: 'stretch'
+  }
+});
+// resizeMode: 'stretch'는 지정한 크기에 꽉 차게 배경 이미지 생성
+
+class DisplayAnImageWithStyle extends Component {
+  render() {
+    return (
+      <View>
+        <Image
+          style={styles.stretch}
+          source={require('@expo/snack-static/react-native-logo.png')}
+        />
+      </View>
+    );
+  }
+}
+
+export default DisplayAnImageWithStyle;
