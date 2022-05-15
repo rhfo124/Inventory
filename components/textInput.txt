@@ -1,0 +1,78 @@
+// textInput #1
+
+import React from "react";
+import { SafeAreaView, StyleSheet, TextInput } from "react-native";
+
+const UselessTextInput = () => {
+  const [text, onChangeText] = React.useState("Useless Text");
+  const [number, onChangeNumber] = React.useState(null);
+
+  return (
+    <SafeAreaView>
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeText} 
+        value={text}
+      /> 
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeNumber}
+        value={number}
+        placeholder="useless placeholder"
+        keyboardType="numeric"
+      />
+    </SafeAreaView>
+  );
+};
+/* onChangeText의 반환값은 내가 쓴 Input 데이터를 뽑아 올때,
+onChange와 onChangeText 설명, 비교 : https://velog.io/@swanious/react-nativeTextInput-%EC%86%8D%EC%84%B1-onChange-onChangeText-%EC%9E%98-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0 */
+const styles = StyleSheet.create({
+  input: {
+    height: 50,
+    margin: 15,
+    borderWidth: 1,
+    padding: 10,
+  },
+});
+
+export default UselessTextInput;
+
+// textInput #2
+
+import React from 'react';
+import { View, TextInput } from 'react-native';
+
+const UselessTextInput = (props) => {
+  return (
+    <TextInput
+      {...props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
+      editable
+      maxLength={10}
+    />
+  );
+}
+
+const UselessTextInputMultiline = () => {
+  const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
+
+  // If you type something in the text box that is a color, the background will change to that
+  // color.
+  return (
+    <View
+      style={{
+        backgroundColor: 'green',
+        borderBottomColor: '#000000',
+        borderBottomWidth: 1,
+      }}>
+      <UselessTextInput
+        multiline
+        numberOfLines={7}
+        onChangeText={text => onChangeText(text)}
+        value={value}
+        style={{padding: 10}}
+      />
+    </View>
+  );
+}
+
+export default UselessTextInputMultiline;
