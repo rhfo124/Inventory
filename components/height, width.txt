@@ -1,0 +1,41 @@
+# height, width
+import React from 'react';
+import { View } from 'react-native';
+
+const FixedDimensionsBasics = () => {
+  return (
+    <View>
+      <View style={{
+        width: 70, height: 70, backgroundColor: 'powderblue'
+      }} />
+      <View style={{
+        width: 150, height: 150, backgroundColor: 'skyblue'
+      }} />
+      <View style={{
+        width: 200, height: 200, backgroundColor: 'steelblue'
+      }} />
+    </View>
+  );
+};
+
+export default FixedDimensionsBasics;
+
+
+# flex
+import React from 'react';
+import { View } from 'react-native';
+
+const FlexDimensionsBasics = () => {
+  return (
+    // Try removing the `flex: 1` on the parent View.
+    // The parent will not have dimensions, so the children can't expand.
+    // What if you add `height: 300` instead of `flex: 1`?
+    <View style={{ flex: 1 }}>
+      <View style={{ flex: 4, backgroundColor: 'powderblue' }} />
+      <View style={{ flex: 3, backgroundColor: 'skyblue' }} />
+      <View style={{ flex: 3, backgroundColor: 'steelblue' }} />
+    </View>
+  );
+};
+
+export default FlexDimensionsBasics;
